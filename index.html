@@ -42,7 +42,7 @@
         <div class="col-md-6">
             <div class="formpage">
                 <h5>Deposit</h5>
-                <input id="depositAmount" class="form-control" type="text" placeholder="$ amount you want to deposite"><br>
+                <input id="depositAmount" class="form-control" type="text" placeholder="$ amount you want to deposit"><br>
                 <button id="addDeposit" class="btn btn-success">Deposit</button>
             </div>     
         </div> 
@@ -73,22 +73,27 @@
        const depositAmount =document.getElementById("depositAmount").value;
        const depositNumber = parseFloat(depositAmount);
 
-       const currentDeposit = document.getElementById("currentDeposit").innerText;
-       const currentDepositNumber = parseFloat(currentDeposit);
-        const totalDeposit = depositNumber+currentDepositNumber;
-     
-      document.getElementById("currentDeposit").innerText = totalDeposit;
+    //    const currentDeposit = document.getElementById("currentDeposit").innerText;
+    //    const currentDepositNumber = parseFloat(currentDeposit);
+    //    const totalDeposit = depositNumber+currentDepositNumber;
+    //    document.getElementById("currentDeposit").innerText = totalDeposit;
  
-      const currentBalance =document.getElementById("currentBalance").innerText;
-      const currentBalanceNumber =parseFloat(currentBalance);
-      const totalBalance = depositNumber+currentBalanceNumber;
-      document.getElementById("currentBalance").innerText =totalBalance;
+     updateSpanText("currentDeposit",depositNumber);
+     updateSpanText("currentBalance",depositNumber);
 
-
-
-      document.getElementById("depositAmount").value="";
+     document.getElementById("depositAmount").value="";
       
   })
+
+function updateSpanText(id, depositNumber){
+
+    const currentBalance =document.getElementById(id).innerText;
+    const currentBalanceNumber =parseFloat(currentBalance);
+    const totalBalance = depositNumber+currentBalanceNumber;
+    document.getElementById(id).innerText =totalBalance;
+
+}
+
     
 </script>
 
